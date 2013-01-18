@@ -18,6 +18,7 @@ var blah = require('./blah');
 
 function Barf () {}
 blah.mix(Barf, { greeting: 'wow...' });
+
 barf = new Barf();
 barf.blah('barf!!')   // 'wow... barf!!'
 
