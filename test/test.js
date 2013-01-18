@@ -1,3 +1,5 @@
+//var start = Date.now();
+
 var assert = require('assert');
 var DotMix = require('../index');
 
@@ -34,3 +36,6 @@ oo.render(unlimited)
 assert.equal(oo.rendered, expected);
 
 console.log('0MG');
+
+//var end = Date.now();
+//console.log(end - start); // For index.js: 6, for old_index.js: 7
