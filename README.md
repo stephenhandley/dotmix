@@ -7,7 +7,7 @@ var DotMix = require('dotmix');
 function Blah (options) {
   this.blah = function(text) {
     console.log(options.greeting + ' ' + text);
-  }
+  };
 }
 DotMix(Blah);
 
@@ -22,7 +22,7 @@ function Barf () {}
 Blah.mix(Barf, { greeting: 'wow...' });
 
 barf = new Barf();
-barf.blah('barf!!')   // 'wow... barf!!'
+barf.blah('barf!!');  // 'wow... barf!!'
 
 ```
 
