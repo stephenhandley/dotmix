@@ -19,9 +19,25 @@ render.mix(SomeObject, { greeting: greeting });
 
 so = new SomeObject();
 var str = 'hi';
-assert.notEqual(so.rendered, str);
+var expected = greeting + ' ' + str;
+assert.notEqual(so.rendered, expected);
 so.render(str);
-assert.equal(so.rendered, greeting + ' ' + str);
+assert.equal(so.rendered, expected);
+
+// this is kinda stupid... probably shouldn't have added
+
+function OtherObject () {
+  this.rendered = 'noooope';
+}
+var barf = 'barf';
+var unlimited = 'unlimited';
+var expected = barf + ' ' + unlimited;
+Mix.mix(render, OtherObject, { greeting : barf});
+oo = new OtherObject();
+assert.notEqual(oo.rendered, expected)
+oo.render(unlimited)
+assert.equal(oo.rendered, expected);
+
 
 console.log('0MG');
 ```
