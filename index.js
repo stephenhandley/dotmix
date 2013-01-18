@@ -5,7 +5,7 @@ function mix () {
   source.apply(target.prototype, args);
 }
 
-function attachMix (mixable) {
+function DotMix (mixable) {
   mixable.mix = function () {
     var args = Array.prototype.slice.call(arguments);
     args.unshift(mixable);
@@ -15,6 +15,6 @@ function attachMix (mixable) {
   return this;
 }
 
-attachMix.mix = mix;
+DotMix.mix = mix;
 
-module.exports = attachMix;
+module.exports = DotMix;

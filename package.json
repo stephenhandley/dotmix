@@ -11,7 +11,7 @@
   },
   
   "scripts": {
-    "test": "node ./test.js"
+    "test": "node test/test.js"
   },
   
   "keywords": [
@@ -22,7 +22,7 @@
   
   "directories" : {
     "lib" : ".",
-    "test" : "."
+    "test" : "test"
   },
   
   "bugs": { 

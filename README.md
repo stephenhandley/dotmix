@@ -1,43 +1,26 @@
+Add a ".mix" method to a source like this (blah.js)
 ```
-var Mix = require('./index');
-var assert = require('assert');
+var DotMix = require('../index');
 
-function render (options) {
-  this.render = function(text) {
-    this.rendered = options.greeting + ' ' + text;
+function blah (options) {
+  this.blah = function(text) {
+    console.log(options.greeting + ' ' + text);
   }
   
   return this;
 }
-Mix(render);
+DotMix(blah);
 
-function SomeObject () {
-  this.rendered = 'barf'; // overwritten by render call
-}
-var greeting = 'Hi totally!';
-render.mix(SomeObject, { greeting: greeting });
+module.exports = blah;
+```
 
-so = new SomeObject();
-var str = 'hi';
-var expected = greeting + ' ' + str;
-assert.notEqual(so.rendered, expected);
-so.render(str);
-assert.equal(so.rendered, expected);
+and then mix it into a target like this
+```
+var blah = require('./blah');
 
-// this is kinda stupid... probably shouldn't have added
+function Barf () {}
+blah.mix(Barf, { greeting: 'wow...' });
+barf = new Barf();
+barf.render('barf!!')   // 'wow... barf!!'
 
-function OtherObject () {
-  this.rendered = 'noooope';
-}
-var barf = 'barf';
-var unlimited = 'unlimited';
-var expected = barf + ' ' + unlimited;
-Mix.mix(render, OtherObject, { greeting : barf});
-oo = new OtherObject();
-assert.notEqual(oo.rendered, expected)
-oo.render(unlimited)
-assert.equal(oo.rendered, expected);
-
-
-console.log('0MG');
 ```
