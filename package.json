@@ -1,0 +1,12 @@
+{
+  "name": "dotmix",
+  "version": "0.0.1",
+  "description": "simple mixin implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test.js"
+  },
+  "repository": "",
+  "author": "Stephen Handley",
+  "license": "BSD"
+}
