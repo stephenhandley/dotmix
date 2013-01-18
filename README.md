@@ -6,8 +6,6 @@ function blah (options) {
   this.blah = function(text) {
     console.log(options.greeting + ' ' + text);
   }
-  
-  return this;
 }
 DotMix(blah);
 
