@@ -1,23 +1,23 @@
-Add a "mix" method to a source like this (blah.js)
+Add a "mix" method to a source like this (Blah.js)
 ```
 var DotMix = require('dotmix');
 
-function blah (options) {
+function Blah (options) {
   this.blah = function(text) {
     console.log(options.greeting + ' ' + text);
   }
 }
-DotMix(blah);
+DotMix(Blah);
 
-module.exports = blah;
+module.exports = Blah;
 ```
 
 and then mix that into a target like this
 ```
-var blah = require('./blah');
+var Blah = require('./Blah');
 
 function Barf () {}
-blah.mix(Barf, { greeting: 'wow...' });
+Blah.mix(Barf, { greeting: 'wow...' });
 
 barf = new Barf();
 barf.blah('barf!!')   // 'wow... barf!!'
