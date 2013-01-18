@@ -1,4 +1,6 @@
-Add a "mix" method to a source like this (Blah.js)
+Some conveniences around functional mixins as described in Angus Croll's ["A fresh look at JavaScript Mixins"](http://javascriptweblog.wordpress.com/2011/05/31/a-fresh-look-at-javascript-mixins/) 
+
+Add a "mix" method to a mixin source like this
 ```
 var DotMix = require('dotmix');
 
@@ -23,3 +25,4 @@ barf = new Barf();
 barf.blah('barf!!')   // 'wow... barf!!'
 
 ```
+
