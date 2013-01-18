@@ -10,9 +10,9 @@ function DotMix (mixable) {
     var args = Array.prototype.slice.call(arguments);
     args.unshift(mixable);
     mix.apply(null, args);
+    
+    return mixable; // chaining barf
   };
-  
-  return this;
 }
 
 DotMix.mix = mix;
