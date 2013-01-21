@@ -18,7 +18,7 @@ or in package.json
 {
   ...
   "dependencies": {
-    "dotmixinn": "~0.0.1"
+    "dotmixin": "~0.0.1"
   }
 }
 ```
@@ -57,7 +57,7 @@ Mixin sources should be a function accepting a single "options" object as an arg
 
 At some point would be cool to have webpage listing sources (probably just subset of npm modules that have "dotmixin" as a package.json keyword)
 
-Sources should have also be augmented with a .describeMixin function that returns a list of the properties they add to the target. When that function is called with an argument name, show details about that function/property and its arguments.
+Sources should probably also be augmented with a .describeMixin function that returns a list of the properties they add to the target. When that function is called with an argument name, show details about that function/property and its arguments.
 
 For the example above.. 
 ```js
