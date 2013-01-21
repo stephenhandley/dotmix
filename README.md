@@ -1,6 +1,6 @@
 # Description
 
-Some conveniences around functional mixins as described in Angus Croll's ["A fresh look at JavaScript Mixins"](http://javascriptweblog.wordpress.com/2011/05/31/a-fresh-look-at-javascript-mixins/) 
+Simple mixin implementation.. basically conveniences around functional mixins as described in Angus Croll's ["A fresh look at JavaScript Mixins"](http://javascriptweblog.wordpress.com/2011/05/31/a-fresh-look-at-javascript-mixins/) 
 
 
 # Latest Version
