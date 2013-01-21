@@ -31,7 +31,7 @@ var Mixin = require('dotmixin');
 
 function Blah (options) {
   this.blah = function(text) {
-    console.log(options.greeting + ' ' + text);
+    return (options.greeting + ' ' + text);
   };
 }
 Mixin(Blah);
@@ -51,21 +51,22 @@ barf.blah('barf!!');  // 'wow... barf!!'
 
 ```
 
-Also possible to use the mixin method directly
+It's also possible to use the mixin method directly
 
 ```js
 var Mixin = require('dotmixin');
 
 function Foo () {
   this.foo = function() {
-    console.log('foo');
-  }
+    return 'food';
+  };
 }
 
-Mixin.mixin(Foo, Barf);
+function Duh () {}
+Mixin.mixin(Foo, Duh);
 
-barf2 = new Barf();
-barf2.foo() // 'foo'
+duh = new Duh();
+duh.foo() // 'food'
 ```
 
 # Notes / TODO
