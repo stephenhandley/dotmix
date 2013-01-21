@@ -51,6 +51,19 @@ barf.blah('barf!!');  // 'wow... barf!!'
 
 ```
 
+Also possible to use the mixin method directly
+
+```js
+function Foo () {
+  this.foo = function() {
+    console.log('foo');
+  }
+}
+Mixin.mixin(Foo, Barf);
+barf2 = new Barf();
+barf2.foo() // 'foo'
+```
+
 # Notes / TODO
 
 Mixin sources should be a function accepting a single "options" object as an argument that provides for mixin-level configuration. 
