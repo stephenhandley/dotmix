@@ -25,7 +25,7 @@ or in package.json
 
 # Usage
 
-Add a "mixin" method to a mixin source like this
+Add a "mixin" method to a source like this
 ```js
 var Mixin = require('dotmixin');
 
@@ -51,7 +51,7 @@ barf.blah('barf!!');  // 'wow... barf!!'
 
 ```
 
-It's also possible to use the mixin method directly
+It's also possible to use the Mixin.mixin method directly
 
 ```js
 var Mixin = require('dotmixin');
