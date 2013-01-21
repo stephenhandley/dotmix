@@ -1,7 +1,7 @@
 //var start = Date.now();
 
 var assert = require('assert');
-var DotMix = require('../index');
+var Mixin = require('../index');
 
 var render = require('./render');
 var blather = require('./blather');
@@ -15,8 +15,8 @@ var greeting = 'Hi totally!';
 var str = 'hi';
 var expected = greeting + ' ' + str;
 
-render.mix(SomeObject, { greeting: greeting });
-blather.mix(SomeObject);
+render.mixin(SomeObject, { greeting: greeting });
+blather.mixin(SomeObject);
 
 so = new SomeObject();
 assert.notEqual(so.rendered, expected);
@@ -37,7 +37,7 @@ var barf = 'barf';
 var unlimited = 'unlimited';
 var expected = barf + ' ' + unlimited;
 
-DotMix.mix(render, OtherObject, { greeting : barf });
+Mixin.mixin(render, OtherObject, { greeting : barf });
 
 oo = new OtherObject();
 assert.notEqual(oo.rendered, expected)

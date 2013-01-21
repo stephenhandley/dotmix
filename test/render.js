@@ -1,10 +1,10 @@
-var DotMix = require('../index');
+var Mixin = require('../index');
 
 function render (options) {
   this.render = function(text) {
     this.rendered = options.greeting + ' ' + text;
   }
 }
-DotMix(render);
+Mixin(render);
 
 module.exports = render;

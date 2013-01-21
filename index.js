@@ -1,16 +1,16 @@
-function mix (mixin, target, options) {
+function mixin (source, target, options) {
   if (arguments.length < 3) {
     options = {};
   }
-  mixin.call(target.prototype, options);
+  source.call(target.prototype, options);
 }
 
-function DotMix (mixin) {
-  mixin.mix = function (target, options) {
-    mix(mixin, target, options);
-    return mixin;
+function Mixin (source) {
+  source.mixin = function (target, options) {
+    mixin(source, target, options);
+    return source;
   };
 }
-DotMix.mix = mix;
+Mixin.mixin = mixin;
 
-module.exports = DotMix;
+module.exports = Mixin;
