@@ -87,7 +87,8 @@ Should develop convention in the options argument to allow for aliasing of the a
 
 How to handle dependencies? Should it be possible to only mixin a subset of properties? 
 
-
+#Build status
+[![build status](https://secure.travis-ci.org/stephenhandley/dotmixin.png)](http://travis-ci.org/stephenhandley/dotmixin)
 
 
 
