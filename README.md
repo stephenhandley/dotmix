@@ -54,12 +54,16 @@ barf.blah('barf!!');  // 'wow... barf!!'
 Also possible to use the mixin method directly
 
 ```js
+var Mixin = require('dotmixin');
+
 function Foo () {
   this.foo = function() {
     console.log('foo');
   }
 }
+
 Mixin.mixin(Foo, Barf);
+
 barf2 = new Barf();
 barf2.foo() // 'foo'
 ```
