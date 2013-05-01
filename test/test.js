@@ -1,50 +1,61 @@
-//var start = Date.now();
+var Assert = require('assert');
+var Asserts = require('asserts');
 
-var assert = require('assert');
 var Mixin = require('../index');
 
-var render = require('./render');
-var blather = require('./blather');
+Asserts(function () {
+    var render = require('./render');
+    var blather = require('./blather');
 
-// Lib / object version
-function SomeObject () {
-  this.rendered = 'barf'; // overwritten by render call
-  this.blathered = 'no';
-}
-var greeting = 'Hi totally!';
-var str = 'hi';
-var expected = greeting + ' ' + str;
+    return {
+    "should mixin properly" : {
 
-render.mixin(SomeObject, { greeting: greeting });
-blather.mixin(SomeObject);
+      "using source.mixin(dest)": function () {
+        // Lib / object version
+        function SomeObject () {
+          this.rendered = 'barf'; // overwritten by render call
+          this.blathered = 'no';
+        }
 
-so = new SomeObject();
-assert.notEqual(so.rendered, expected);
-so.render(str);
-assert.equal(so.rendered, expected);
+        var greeting = 'Hi totally!';
+        var str = 'hi';
+        var expected = greeting + ' ' + str;
 
-assert.notEqual(so.blathered, str);
-so.blather(str);
-assert.equal(so.blathered, str);
+        render.mixin(SomeObject, { greeting: greeting });
+        blather.mixin(SomeObject);
 
-// Can also access underlying mixin function directly
-// this is kinda stupid... maybe shouldn't have exposed
-function OtherObject () {
-  this.rendered = 'noooope';
-}
+        so = new SomeObject();
+        Assert.notEqual(so.rendered, expected);
+        so.render(str);
+        Assert.equal(so.rendered, expected);
 
-var barf = 'barf';
-var unlimited = 'unlimited';
-var expected = barf + ' ' + unlimited;
+        Assert.notEqual(so.blathered, str);
+        so.blather(str);
+        Assert.equal(so.blathered, str);
+      },
 
-Mixin.mixin(render, OtherObject, { greeting : barf });
+      "using Mixin.mixin(source, destination)": function () {
+        // Can also access underlying mixin function directly
+        // this is kinda stupid... maybe shouldn't have exposed
+        function OtherObject () {
+          this.rendered = 'noooope';
+        }
 
-oo = new OtherObject();
-assert.notEqual(oo.rendered, expected)
-oo.render(unlimited)
-assert.equal(oo.rendered, expected);
+        var barf = 'barf';
+        var unlimited = 'unlimited';
+        var expected = barf + ' ' + unlimited;
 
-console.log('0MG');
+        Mixin.mixin(render, OtherObject, { greeting : barf });
 
-//var end = Date.now();
-//console.log(end - start); // For index.js: 6, for old_index.js: 7
+        oo = new OtherObject();
+        Assert.notEqual(oo.rendered, expected)
+        oo.render(unlimited)
+        Assert.equal(oo.rendered, expected);
+      }
+    }
+  }
+});
+
+
+
+
