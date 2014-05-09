@@ -1,10 +1,14 @@
-var Mixin = require('../index');
+var Dotmix = require('../index');
 
-function render (options) {
-  this.render = function(text) {
-    this.rendered = options.greeting + ' ' + text;
+var render = {
+  include : function (data) {
+    return {
+      render : function (text) {
+        this.rendered = data.greeting + ' ' + text;
+      }
+    }
   }
-}
-Mixin(render);
+};
+Dotmix(render);
 
 module.exports = render;

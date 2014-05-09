@@ -1,10 +1,12 @@
-var Mixin = require('../index');
+var Dotmix = require('../index');
 
-function blather (options) {
-  this.blather = function(text) {
-    this.blathered = text;
+var blather = {
+  include : {
+    blather : function (text) {
+      this.blathered = text;
+    }
   }
-}
-Mixin(blather);
+};
+Dotmix(blather);
 
 module.exports = blather;

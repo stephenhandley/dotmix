@@ -1,40 +1,40 @@
 # Description
 
-Simple mixin implementation.. basically conveniences around functional mixins as described in Angus Croll's ["A fresh look at JavaScript Mixins"](http://javascriptweblog.wordpress.com/2011/05/31/a-fresh-look-at-javascript-mixins/)
-
+Simple mixin implementation.
 
 # Latest Version
 
-0.0.2
+1.0.0
 
 # Installation
-```
-npm install dotmixin
-```
 
-or in package.json
-
-```json
-{
-  ...
-  "dependencies": {
-    "dotmixin": "0.0.x"
-  }
-}
+```
+npm install dotmix --save
 ```
 
 # Usage
 
-Add a "mixin" method to a source like this
-```js
-var Mixin = require('dotmixin');
+Add a "mix" method to a source like this.
 
-function Blah (options) {
-  this.blah = function(text) {
-    return (options.greeting + ' ' + text);
-  };
-}
-Mixin(Blah);
+```js
+var Dotmix = require('dotmix');
+
+var Blah = {
+  include : function (data) {
+    return {
+      blah : function (text) {
+        return (data.greeting + ' ' + text);
+      }
+    }
+  },
+  extend : {
+    barf : function (food) {
+      return ("NOW BARFING: " + food);
+    }
+  }
+};
+
+Dotmix(Blah);
 
 module.exports = Blah;
 ```
@@ -44,51 +44,52 @@ and then mix that into a target like this
 var Blah = require('./Blah');
 
 function Barf () {}
-Blah.mixin(Barf, { greeting: 'wow...' });
+Blah.mix({
+  into : Barf, 
+  data : { 
+    greeting: 'wow...' 
+  }
+});
 
 barf = new Barf();
-barf.blah('barf!!');  // 'wow... barf!!'
+barf.blah('barf!!');   // wow... barf!!
+Barf.barf('pancakes'); // NOW BARFING: pancakes
 
 ```
 
-It's also possible to use the Mixin.mixin method directly
+It's also possible to use the Dotmix.mix method directly
 
 ```js
-var Mixin = require('dotmixin');
+var Dotmix = require('dotmix');
 
-function Foo () {
-  this.foo = function() {
+var Foo = {
+  foo : function () {
     return 'food';
-  };
-}
+  }
+};
 
 function Duh () {}
-Mixin.mixin(Foo, Duh);
+Dotmix.mix({
+  from : Foo, 
+  into : Duh
+});
 
 duh = new Duh();
 duh.foo() // 'food'
 ```
 
-# Notes / TODO
+# Notes 
 
-Mixin sources should be a function accepting a single "options" object as an argument that provides for mixin-level configuration.
+Includes ideas from 
+- ["A fresh look at JavaScript Mixins"](http://javascriptweblog.wordpress.com/2011/05/31/a-fresh-look-at-javascript-mixins/)
+- ["The Little Book on CoffeeScript - Classes"](http://arcturo.github.io/library/coffeescript/03_classes.html)
 
-At some point would be cool to have webpage listing sources (probably just subset of npm modules that have "dotmixin" as a package.json keyword)
+# TODO
 
-Sources should probably also be augmented with a .describeMixin function that returns a list of the properties they add to the target. When that function is called with an argument name, show details about that function/property and its arguments.
-
-For the example above..
-```js
-Blah.describeMixin() // ['blah']
-Blah.describeMixin('blah') // { type: Function, arguments: ['text'] }
-```
-
-Should develop convention in the options argument to allow for aliasing of the added functions & properties to avoid namespace collisions.
-
-How to handle dependencies? Should it be possible to only mixin a subset of properties?
+- list of mixin sources (probably just subset of npm modules that have "dotmix" as a package.json keyword)
 
 #Build status
-[![build status](https://secure.travis-ci.org/stephenhandley/dotmixin.png)](http://travis-ci.org/stephenhandley/dotmixin)
+[![build status](https://secure.travis-ci.org/stephenhandley/dotmix.png)](http://travis-ci.org/stephenhandley/dotmix)
 
 
 

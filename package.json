@@ -1,42 +1,36 @@
 {
-  "name": "dotmixin",
+  "name": "dotmix",
   "description": "simple mixin implementation",
-  "version": "0.0.2",
-  "license" : "MIT",
+  "version": "1.0.0",
+  "license": "MIT",
   "main": "index.js",
-
   "repository": {
     "type": "git",
-    "url": "git://github.com/stephenhandley/dotmixin.git"
+    "url": "git://github.com/stephenhandley/dotmix.git"
   },
-
   "scripts": {
     "test": "node test/test.js"
   },
-
   "keywords": [
-    "dotmixin",
-    "mixin",
-    "functional inheritance"
+    "dotmix",
+    "mixin"
   ],
-
-  "directories" : {
-    "lib" : ".",
-    "test" : "test"
+  "directories": {
+    "lib": ".",
+    "test": "test"
   },
-
   "bugs": {
-    "url" : "http://github.com/stephenhandley/dotmixin/issues"
+    "url": "http://github.com/stephenhandley/dotmix/issues"
   },
-
-  "engines" : {
-    "node" : ">=0.10.5"
+  "engines": {
+    "node": ">=0.10.5"
   },
-
-  "devDependencies" : {
-    "asserts" : "4.0.x"
+  "dependencies": {
+    "type-of-is": "~3.2.0"
   },
-
+  "devDependencies": {
+    "asserts": "4.0.x"
+  },
   "author": {
     "name": "Stephen Handley",
     "email": "stephen.handley@gmail.com",
