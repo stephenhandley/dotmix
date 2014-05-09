@@ -14,7 +14,7 @@ npm install dotmix --save
 
 # Usage
 
-Add a "mix" method to a source like this.
+Add a "mix" method to a source like this:
 
 ```js
 var Dotmix = require('dotmix');
@@ -39,11 +39,16 @@ Dotmix(Blah);
 module.exports = Blah;
 ```
 
-and then mix that into a target like this
+Mixin sources should be objects with include and/or extend attributes. Their values can be either an object, or if you want to pass configuration data, functions accepting that single data argument and returning an object.
+
+You mix into a target like this:
 ```js
 var Blah = require('./Blah');
 
-function Barf () {}
+function Barf (derp) {
+  this.derp = derp;
+}
+
 Blah.mix({
   into : Barf, 
   data : { 
@@ -63,12 +68,17 @@ It's also possible to use the Dotmix.mix method directly
 var Dotmix = require('dotmix');
 
 var Foo = {
-  foo : function () {
-    return 'food';
+  include : {
+    foo : function () {
+      return 'food';
+    }
   }
 };
 
-function Duh () {}
+function Duh (derp) {
+  this.derp = derp;
+}
+
 Dotmix.mix({
   from : Foo, 
   into : Duh
@@ -90,6 +100,3 @@ Includes ideas from
 
 #Build status
 [![build status](https://secure.travis-ci.org/stephenhandley/dotmix.png)](http://travis-ci.org/stephenhandley/dotmix)
-
-
-
