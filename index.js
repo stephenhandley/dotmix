@@ -28,7 +28,7 @@ function _extend (options) {
       }
       
       if (into.hasOwnProperty(into_k)) {
-        var err = 'Mix would overwrite existing property ' + into_k + '. Use alias option to rename.';
+        var err = "Dotmix: Can't overwrite existing property named '" + into_k + "' in " + into.constructor.name + ". Use alias option to rename.";
         throw err;
       }
       
